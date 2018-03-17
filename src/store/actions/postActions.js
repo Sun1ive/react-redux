@@ -9,7 +9,7 @@ export const fetchPosts = () => async dispatch => {
   });
 };
 
-export const newPoest = postData => async dispatch => {
+export const newPost = postData => async dispatch => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     headers: {

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { newPost } from '../../store/actions/postActions'
 
 class PostForm extends Component {
   state = {
@@ -14,7 +17,8 @@ class PostForm extends Component {
 
   onSubmitHandler = async e => {
     e.preventDefault();
-    const post = { ...this.state };
+    const post = { ...this.state }
+    this.props.newPost(post);
   };
   render() {
     return (
@@ -44,4 +48,8 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+PostForm.propTypes = {
+  newPost: PropTypes.func.isRequired,
+}
+
+export default connect(null, { newPost })(PostForm);
