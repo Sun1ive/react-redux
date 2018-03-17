@@ -15,16 +15,6 @@ class PostForm extends Component {
   onSubmitHandler = async e => {
     e.preventDefault();
     const post = { ...this.state };
-
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(post),
-    });
-    const parsed = await response.json();
-    console.log(parsed);
   };
   render() {
     return (
